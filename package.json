@@ -1,0 +1,11 @@
+{
+  "name": "dashboard-itech",
+  "version": "1.0.0",
+  "description": "Google Classroom Realtime Dashboard",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

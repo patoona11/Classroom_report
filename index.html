@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard ห้องเรียนออนไลน์ Google Classroom</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><i class="ri-google-fill"></i></div>
+                    <h1>Google Classroom Dashboard</h1>
+                </div>
+                <p class="subtitle">ระบบรายงานข้อมูลห้องเรียนออนไลน์ (Realtime)</p>
+            </div>
+            <div class="header-stats" id="headerStats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="ri-book-read-line"></i></div>
+                    <div class="stat-info">
+                        <h3>รวมรายวิชา</h3>
+                        <p id="totalClasses">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="ri-user-star-line"></i></div>
+                    <div class="stat-info">
+                        <h3>อาจารย์ผู้สอน</h3>
+                        <p id="totalTeachers">0</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="search-section glass-panel">
+            <div class="search-header">
+                <h2><i class="ri-search-eye-line"></i> ค้นหาข้อมูล</h2>
+                <div class="last-update">อัปเดตล่าสุด: <span id="lastUpdateTime">-</span></div>
+            </div>
+            
+            <div class="search-controls">
+                <div class="search-group">
+                    <label for="searchTeacher">ชื่อ-นามสกุล อาจารย์</label>
+                    <div class="input-wrapper">
+                        <i class="ri-user-line"></i>
+                        <input type="text" id="searchTeacher" placeholder="พิมพ์ชื่ออาจารย์...">
+                    </div>
+                </div>
+                
+                <div class="search-group">
+                    <label for="searchBranch">สังกัดสาขาวิชา</label>
+                    <div class="input-wrapper">
+                        <i class="ri-building-4-line"></i>
+                        <input type="text" id="searchBranch" placeholder="พิมพ์สาขาวิชา...">
+                    </div>
+                </div>
+                
+                <div class="search-group">
+                    <label for="searchCourse">ชื่อรายวิชา</label>
+                    <div class="input-wrapper">
+                        <i class="ri-book-open-line"></i>
+                        <input type="text" id="searchCourse" placeholder="พิมพ์ชื่อรายวิชา...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-section glass-panel">
+            <div class="table-container">
+                <table id="classroomTable">
+                    <thead>
+                        <tr>
+                            <th>อาจารย์ผู้สอน</th>
+                            <th>สาขาวิชา</th>
+                            <th>รายวิชา</th>
+                            <th>ระดับชั้น</th>
+                            <th>รหัสห้อง (Code)</th>
+                            <th>ลิงก์เข้าเรียน</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Data will be injected here -->
+                        <tr class="loading-row">
+                            <td colspan="6">
+                                <div class="loader-container">
+                                    <div class="loader"></div>
+                                    <p>กำลังดึงข้อมูลแบบ Realtime...</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
