@@ -1,4 +1,4 @@
-const SHEET_URL = "/api/sheet";
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/11j3QJ9IQlG3NX3UGJKsPjyuFXGdYWhSvaOI0geRLcIo/gviz/tq?tqx=out:csv";
 
 let allData = [];
 let filteredData = [];
