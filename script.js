@@ -72,7 +72,8 @@ function fetchData() {
 }
 
 function updateStats() {
-    totalClassesEl.textContent = allData.length;
+    const total = allData.length;
+    totalClassesEl.textContent = total;
     
     const uniqueTeachers = new Set();
     allData.forEach(row => {
@@ -82,6 +83,13 @@ function updateStats() {
         }
     });
     totalTeachersEl.textContent = uniqueTeachers.size;
+    
+    // Calculate percentage based on 818 target
+    const percentage = ((total * 100) / 818).toFixed(2);
+    const percentageEl = document.getElementById('percentageValue');
+    if (percentageEl) {
+        percentageEl.textContent = `${percentage}%`;
+    }
 }
 
 function updateLastUpdateTime() {

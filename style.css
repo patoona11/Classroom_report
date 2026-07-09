@@ -186,6 +186,11 @@ body {
     color: var(--secondary);
 }
 
+.stat-card:nth-child(3) .stat-icon {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
 .stat-info h3 {
     font-size: 0.9rem;
     color: var(--text-muted);
