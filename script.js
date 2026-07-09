@@ -84,8 +84,8 @@ function updateStats() {
     });
     totalTeachersEl.textContent = uniqueTeachers.size;
     
-    // Calculate percentage based on 818 target and divide by 10 as requested
-    const percentage = (((total * 100) / 818) / 10).toFixed(2);
+    // Calculate percentage based on 818 target
+    const percentage = ((total * 100) / 818).toFixed(2);
     const percentageEl = document.getElementById('percentageValue');
     if (percentageEl) {
         percentageEl.textContent = `${percentage}%`;
