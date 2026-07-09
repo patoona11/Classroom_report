@@ -11,7 +11,6 @@ const searchTeacher = document.getElementById('searchTeacher');
 const searchBranch = document.getElementById('searchBranch');
 const searchCourse = document.getElementById('searchCourse');
 const totalClassesEl = document.getElementById('totalClasses');
-const totalTeachersEl = document.getElementById('totalTeachers');
 const lastUpdateTimeEl = document.getElementById('lastUpdateTime');
 
 // Initialize
@@ -74,15 +73,6 @@ function fetchData() {
 function updateStats() {
     const total = allData.length;
     totalClassesEl.textContent = total;
-    
-    const uniqueTeachers = new Set();
-    allData.forEach(row => {
-        const teacher = row[row._teacherKey];
-        if (teacher) {
-            uniqueTeachers.add(teacher.trim());
-        }
-    });
-    totalTeachersEl.textContent = uniqueTeachers.size;
     
     // Calculate percentage based on 818 target
     const percentage = ((total * 100) / 818).toFixed(2);
