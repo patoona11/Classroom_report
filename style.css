@@ -159,6 +159,21 @@ body {
     gap: 1rem;
     box-shadow: var(--glass-shadow);
     transition: var(--transition);
+    text-decoration: none; /* For link cards */
+}
+
+a.stat-card {
+    cursor: pointer;
+}
+
+.action-card {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(79, 70, 229, 0.1));
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+.action-card:hover {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(79, 70, 229, 0.2));
+    border-color: var(--primary-light);
 }
 
 .stat-card:hover {
@@ -189,6 +204,11 @@ body {
 .stat-card:nth-child(3) .stat-icon {
     background: rgba(245, 158, 11, 0.1);
     color: #F59E0B;
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    background: rgba(79, 70, 229, 0.15);
+    color: var(--primary);
 }
 
 .stat-info h3 {
